@@ -1,3 +1,5 @@
+USE fresh_segments;
+
 --  Top 10 and bottom 10 interests which have the largest composition values in any month_year
 WITH filtered_interest_cte AS (
     SELECT *
@@ -140,11 +142,11 @@ WITH filtered_interest_cte AS (
 )
 SELECT fic.interest_id,
 		ROUND(AVG(fic.ranking),2) AS avg_ranking_value,
-        im.interest_name,
-        im.interest_summary
+        ROUND(MAX(fic.composition),2) AS max_composition,
+        im.interest_name
 FROM filtered_interest_cte fic
 JOIN fresh_segments.interest_map im
 	ON im.id = fic.interest_id
-GROUP BY fic.interest_id, im.interest_name, im.interest_summary
+GROUP BY fic.interest_id, im.interest_name
 ORDER BY avg_ranking_value ASC
 ;

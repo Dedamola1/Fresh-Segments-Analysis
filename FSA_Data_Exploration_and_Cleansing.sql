@@ -1,3 +1,5 @@
+USE fresh_segments;
+
 -- Updating the interest_metrics table by modifying the month_year column to be a date data type
 ALTER TABLE fresh_segments.interest_metrics
 ADD COLUMN month_year_backup VARCHAR(255);
@@ -51,7 +53,7 @@ LEFT JOIN Fresh_segments.interest_metrics im
 ON mp.id = im.interest_id
 WHERE im.interest_id IS NULL;
 
--- id values in the interest_map by its total record count in this table
+-- Summarized id values in the interest_map by its total record count in this table
 SELECT id, 
 	   interest_name,
 	   COUNT(*) AS total_count

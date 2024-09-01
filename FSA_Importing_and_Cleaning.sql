@@ -1,5 +1,7 @@
 CREATE SCHEMA fresh_segments;
 
+USE fresh_segments;
+
 DROP TABLE IF EXISTS fresh_segments.json_data;
 CREATE TABLE fresh_segments.json_data (raw_data JSON);
 

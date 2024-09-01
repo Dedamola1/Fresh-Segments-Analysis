@@ -1,3 +1,5 @@
+USE fresh_segments;
+
 -- Top 10 interests by the average composition for each month
 WITH AvgCompositionCTE AS (
     SELECT

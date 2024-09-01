@@ -1,3 +1,5 @@
+USE fresh_segments;
+
 -- Interests have been present in all month_year dates
 SELECT 
 	  COUNT(DISTINCT month_year) AS unique_month_year_count, 
@@ -72,10 +74,4 @@ SELECT total_months,
 		CASE WHEN total_months <= 6 THEN COUNT(DISTINCT interest_id) ELSE 0 END AS unique_interest_count
 FROM interest_cte
 GROUP BY total_months;
-
-
-
-
-
-
 
